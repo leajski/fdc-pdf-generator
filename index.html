@@ -8,16 +8,61 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<!-- Load JSON file and update title -->
+		<script>
+			const xhr = new XMLHttpRequest();
+			xhr.open("GET", "translation/fr.json");
+			xhr.responseType = "json";
+			xhr.send();
+
+			xhr.onload = function () {
+				const data = xhr.response;
+				const documentTitleElement = document.getElementById("ANT_FR_document_title");
+				documentTitleElement.textContent = data.ANT_FR_document_title;
+
+				const firstTitleElement = document.getElementById("ANT_FR_first_title");
+				firstTitleElement.textContent = data.ANT_FR_first_title;
+
+				const secondTitleElement = document.getElementById("ANT_FR_second_title");
+				secondTitleElement.textContent = data.ANT_FR_second_title;
+
+				const firstListElement = document.getElementById("ANT_FR_first_item_list");
+				firstListElement.textContent = data.ANT_FR_first_item_list;
+
+				const secondListElement = document.getElementById("ANT_FR_second_item_list");
+				secondListElement.textContent = data.ANT_FR_second_item_list;
+
+				const thirdListElement = document.getElementById("ANT_FR_third_item_list");
+				thirdListElement.textContent = data.ANT_FR_third_item_list;
+
+				const fourthListElement = document.getElementById("ANT_FR_fourth_item_list");
+				fourthListElement.textContent = data.ANT_FR_fourth_item_list;
+
+				const firstParagraphElement = document.getElementById("ANT_FR_first_paragraph");
+				firstParagraphElement.textContent = data.ANT_FR_first_paragraph;
+			};
+		</script>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1 id="ANT_FR_document_title"></h1>
+					<h2 id="ANT_FR_first_title"></h2>
+					<ul>
+						<li id ="ANT_FR_first_item_list">hello</li>
+						<li id ="ANT_FR_second_item_list"></li>
+						<li id ="ANT_FR_third_item_list"></li>
+						<li id ="ANT_FR_fourth_item_list"></li>
+					</ul>
+					<p id="ANT_FR_first_paragraph"></p>
+					<h2 id="ANT_FR_second_title"></h2>
+				</section>
 			</div>
 		</div>
 
@@ -33,7 +78,11 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+				width: 3508,
+  				height:  2480,
+				center: false,
+				showNotes: false
 			});
 		</script>
 	</body>
