@@ -14,6 +14,8 @@
 // Include theme-specific fonts
 @import url(./fonts/source-sans-pro/source-sans-pro.css);
 
+table {border-collapse: collapse;}
+table td {padding: 0px}
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #fff;
